@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  <title>Contact Page</title>
+{% endblock title %}
+
+{% block content %}
+</br>
+
+<div class="container">
+  <div class="row mt-1">
+    <div class="col-md-7 offset-md-3">
+      <center><p class="h3 text-primary">Hubungi Kami!</p></center>
+      <center><p class="h6">"Sebuah karya dari Kami untuk mengetahui cara belajar efektif"</p></center>
+    </div>
+  </div>
+</br>
+  <div class="row align-items-start mt-2">
+    <div class="col">
+      <img src="{% static 'images\logo3-.png'%}" alt="Map" class="rounded-lg shadow" width="220" height="200">
+    </div>
+    <div class="col">
+      <img src="{% static 'images\logo3-.png'%}" alt="Map" class="rounded-lg shadow" width="220" height="200">
+    </div>
+    <div class="col">
+      <img src="{% static 'images\logo3-.png'%}" alt="Map" class="rounded-lg shadow" width="220" height="200">
+    </div>
+    <div class="col">
+      <img src="{% static 'images\logo3-.png'%}" alt="Map" class="rounded-lg shadow" width="220" height="200">
+    </div>
+  </div>  
+</div>
+{% endblock content %}

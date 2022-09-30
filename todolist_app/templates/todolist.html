@@ -1,0 +1,44 @@
+<!-todolist_app\templates\todolist.html>
+{% extends 'base.html' %}
+
+{% block title %}
+  <title>Hayu Diajar</title>
+{% endblock title %}
+{% block content %}
+
+  <div class="container">
+  </br>
+  {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-info" alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+  </button>
+      </div>
+      {% endfor %}
+  {% endif %}
+    <!-- <div class="table-responsive{-sm|-md|-lg|-xl}"> -->
+    <div class="container px-lg-1">
+    <form method="POST" class="col">
+      {% csrf_token %}
+      <label class="col-sm-4"></label>
+        <input type="text" class="form-control col-sm-5" name="task" placeholder="Kegiatan baru?">
+        <input type="text" class="form-control col-sm-5" name="tanggal" placeholder="Tanggal?">
+        <input type="text" class="form-control col-sm-5" name="pelajaran" placeholder="Mata Pelajaran?">
+        <input type="text" class="form-control col-sm-5" name="waktu" placeholder="Waktu Belajar?">
+        <input type="text" class="form-control col-sm-5" name="cara" placeholder="Cara Belajar?">
+        <input type="text" class="form-control col-sm-5" name="jam" placeholder="Jam Belajar?">
+        <input type="text" class="form-control col-sm-5" name="durasi" placeholder="Durasi Belajar?">
+        <input type="text" class="form-control col-sm-5" name="nilai" placeholder="Perkiraan Nilai?">
+        <input type="text" class="form-control col-sm-5" name="positif" placeholder="Keuntungan?">
+        <input type="text" class="form-control col-sm-5" name="negatif" placeholder="Kekurangan?">
+        <button type="submit" class="btn btn-primary col-sm-3">Tambah Kegiatan</button>
+    </form>
+
+    </br>
+    
+    
+    </div>
+  </div>
+{% endblock content %}
