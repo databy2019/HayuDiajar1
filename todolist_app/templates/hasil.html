@@ -1,0 +1,113 @@
+<!-todolist_app\templates\todolist.html>
+{% extends 'base.html' %}
+
+{% block title %}
+  <title>Hayu Diajar</title>
+{% endblock title %}
+{% block content %}
+
+  <div class="container">
+  </br>
+  {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-info" alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+  </button>
+      </div>
+      {% endfor %}
+  {% endif %}
+   
+  {%if user.is_authenticated%}      
+  <div class="col-10">
+    <div class="col-align-center">
+      <center><p class="h4 mt-1">Data Kegiatan Belajarmu <font color="blue"> <b>{{ user.username}}</b></font></p></center>
+    </div>
+  </div>
+  {% endif %}
+  </br>
+  <div class="table-responsive">  
+    <table class="table table-sm">
+      <thead class="thead-dark">
+        <tr class="table col-align-left">
+          <th class="col-sm-2">Kegiatan</th>
+          <th class="col-sm-1">Tanggal</th>
+          <th class="col-sm-1">Pelajaran</th>
+          <th class="col-sm-1">Waktu</th>
+          <th class="col-sm-1">Cara</th>
+          <th class="col-sm-1">Jam</th>
+          <th class="col-sm-1">Durasi</th>
+          <th class="col-sm-1">Nilai</th>
+          <th class="col-sm-1">Keuntungan</th>
+          <th class="col-sm-1">Kekurangan</th>
+          {% comment %} <th class="col-sm-1">Selesai</th> {% endcomment %}
+          {% comment %} <th class="col-sm-1">Edit</th> {% endcomment %}
+          <th class="col-sm-1">Hapus</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%if all_tasks %}
+          {% for obj in all_tasks %}
+              {% if obj.done %}
+                <tr class="table col-align-left">
+                  <td class="col-sm-2"><del>{{ obj.task }}</del></td>
+                  <td class="col-sm-1"><del>{{ obj.tanggal }}</del></td>
+                  <td class="col-sm-1"><del>{{ obj.pelajaran }}</del></td>
+                  <td class="col-sm-1"><del>{{ obj.waktu }}</del></td>
+                  <td class="col-sm-1"><del>{{ obj.cara }}</del></td>
+                  <td class="col-sm-1"><del>{{ obj.jam }}</del></td>
+                  <td class="col-sm-1"><del>{{ obj.durasi }}</del></td>
+                  <td class="col-sm-1"><del>{{ obj.nilai }}</del></td>
+                  <td class="col-sm-1"><del>{{ obj.positif }}</del></td>
+                  <td class="col-sm-1"><del>{{ obj.negatif }}</del></td>
+                  {% comment %} <td class="col-sm-1"><a href="{% url 'pending_task' obj.id %}"><button type="button" class="btn btn-success">Tandai belum selesai</button></a></td> {% endcomment %}
+                  {% comment %} <td class="col-sm-1"><a href="{% url 'edit_task' obj.id %}"><button type="button" class="btn btn-warning btn-sm">Edit</button></a></td> {% endcomment %}
+                  <td class="col-sm-1"><a href="{% url 'delete_task' obj.id %}"><button type="button" class="btn btn-danger btn-sm">Hapus</button></a></td>
+                </tr>
+              {% else %}
+                <tr class="table col-align-left">
+                  <td class="col-sm-2">{{ obj.task }}</td>
+                  <td class="col-sm-1">{{ obj.tanggal }}</td>
+                  <td class="col-sm-1">{{ obj.pelajaran }}</td>
+                  <td class="col-sm-1">{{ obj.waktu }}</td>
+                  <td class="col-sm-1">{{ obj.cara }}</td>
+                  <td class="col-sm-1">{{ obj.jam }}</td>
+                  <td class="col-sm-1">{{ obj.durasi }}</td>
+                  <td class="col-sm-1">{{ obj.nilai }}</td>
+                  <td class="col-sm-1">{{ obj.positif }}</td>
+                  <td class="col-sm-1">{{ obj.negatif }}</td>
+                  {% comment %} <td class="col-sm-1"><a href="{% url 'complete_task' obj.id %}"><button type="button" class="btn btn-secondary">Tandai sudah selesai</button></a></td> {% endcomment %}
+                  {% comment %} <td class="col-sm-1"><a href="{% url 'edit_task' obj.id %}"><button type="button" class="btn btn-warning btn-sm">Edit</button></a></td> {% endcomment %}
+                  <td class="col-sm-1"><a href="{% url 'delete_task' obj.id %}"><button type="button" class="btn btn-danger btn-sm">Hapus</button></a></td>
+                </tr>
+              {% endif %}
+          {% endfor %}
+        {% endif %}
+    </tbody>
+    </table>
+  </div>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+            {% if all_tasks.has_previous %}
+                <li><a  class="page-link" tabindex="-1" aria-disabled="true" href="?page={{ all_tasks.previous_page_number }}">«</a></li>
+            {% else %}
+                <li class="page-link" class="page-item disabled"> << </li>
+            {% endif %}
+            {% for i in all_tasks.paginator.page_range %}
+                {% if all_tasks.number == i %}
+                    <li class="page-item"><a class="page-link">{{ i }}</a></li>
+                {% else %}
+                    <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if all_tasks.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ all_tasks.next_page_number }}">»</a></li>
+            {% else %}
+                <li class="page-link" class="page-item disabled"> >> </li>
+            {% endif %}
+        </ul>
+    </nav>
+    </div>
+  </div>
+{% endblock content %}

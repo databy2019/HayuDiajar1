@@ -1,0 +1,55 @@
+<!-todolist_app\templates\todolist.html>
+{% extends 'base.html' %}
+
+{% block title %}
+  <title>Hayu Diajar</title>
+{% endblock title %}
+{% block content %}
+
+  <div class="container">
+  </br>
+  {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-info" alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+  </button>
+      </div>
+      {% endfor %}
+  {% endif %}
+   
+  {%if user.is_authenticated%}      
+  <div class="col-10">
+    <div class="col-align-center">
+      <center><p class="h3 mt-1">Laporan Hasil Belajarmu <font color="blue"> <b>{{ user.username}}</b></font></p></center>
+    </div>
+  </div>
+  {% endif %}
+ 
+  <div class="col-10">
+      <div class="col-align-center">
+        <center> {% autoescape off %}
+          {{ plot_div }}
+          {% endautoescape %}
+        </center>
+      </div>
+      <div class="col-align-center">
+        <center> {% autoescape off %}
+          {{ plot_div2 }}
+          {% endautoescape %}
+        </center>
+      </div>
+      <div class="col-align-center">
+        <center> {% autoescape off %}
+          {{ plot_div3 }}
+          {% endautoescape %}
+        </center>
+      </div>
+    </div>
+    
+
+   
+    
+  
+{% endblock content %}

@@ -1,0 +1,73 @@
+<!-todolist_app\templates\todolist.html>
+{% extends 'base.html' %}
+
+{% block title %}
+  <title>Hayu Diajar</title>
+{% endblock title %}
+{% block content %}
+
+  <div class="container">
+  </br>
+  {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-info" alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+  </button>
+      </div>
+      {% endfor %}
+  {% endif %}
+    <!-- <div class="table-responsive{-sm|-md|-lg|-xl}"> -->
+
+      {%if user.is_authenticated%}      
+      <div class="col-10">
+        <div class="col-align-center">
+          <center><p class="h4 mt-1">Input Data Belajarmu <font color="blue"> <b>{{ user.username}}</b></font></p></center>
+        </div>
+      </div>
+      {% endif %}
+     
+    <div class="container px-lg-1">
+    <form method="POST" class="col">
+      {% csrf_token %}
+      <label class="col-sm-4"></label>
+        <input type="text" class="form-control col-sm-5" name="task" placeholder="Kegiatan baru?">
+        <input type="date" class="form-control col-sm-5" name="tanggal" placeholder="Tanggal?">
+        <select class="form-control col-sm-5" id="pelajaran" name="pelajaran">
+          <option value="Matematika">Matematika</option>
+          <option value="Biologi">Biologi</option>
+          <option value="Fisika">Fisika</option>
+          <option value="Bahasa Ingris">Bahasa Inggris</option>
+        </select>
+        <select class="form-control col-sm-5" id="waktu" name="waktu" placeholder="Waktu Belajar?">
+          <option value="Pagi-pagi">Pagi-pagi</option>
+          <option value="Siang">Siang</option>
+          <option value="Sore">Sore</option>
+          <option value="Malam">Malam</option>
+        </select>
+        <select class="form-control col-sm-5" id="cara" name="cara" placeholder="Cara Belajar?">
+          <option value="Duduk">Duduk</option>
+          <option value="Lesehan">Lesehan</option>
+          <option value="Meja Belajar">Meja Belajar</option>
+          <option value="Tiduran">Tiduran</option>
+        </select>
+        {% comment %} <input type="" class="form-control col-sm-5" name="pelajaran" placeholder="Mata Pelajaran?"> 
+        <input type="text" class="form-control col-sm-5" name="waktu" placeholder="Waktu Belajar?"> 
+        <input type="text" class="form-control col-sm-5" name="cara" placeholder="Cara Belajar?"> {% endcomment %}
+        <input type="time" class="form-control col-sm-5" name="jam" placeholder="Jam Belajar dalam menit?">
+        <input type="text" class="form-control col-sm-5" name="durasi" placeholder="Durasi Belajar?">
+        <input type="text" class="form-control col-sm-5" name="nilai" placeholder="Perkiraan Nilai rentang 0 - 100?">
+        <textarea rows="3" cols="50" class="form-control col-sm-5" name="positif" placeholder="Keuntungan belajar dengan cara ini..."></textarea>
+        <textarea rows="3" cols="50" class="form-control col-sm-5" name="negatif" placeholder="Kekurangan belajar dengan cara ini..."></textarea>
+        {% comment %} <input type="textar ea" class="form-control col-sm-5" name="positif" rows="10" cols="30" placeholder="Keuntungan?"> {% endcomment %}
+        {% comment %} <input type="textarea" class="form-control col-sm-5" name="negatif" placeholder="Kekurangan?"> {% endcomment %}
+        <button type="submit" class="btn btn-primary col-sm-3">Tambah Kegiatan</button>
+    </form>
+
+    </br>
+    
+    
+    </div>
+  </div>
+{% endblock content %}

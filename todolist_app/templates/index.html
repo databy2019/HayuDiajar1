@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  <title>Home</title>
+{% endblock title %}
+
+{% block content %}
+</br>
+
+<div class="container">
+  <div class="row justify-content-start">
+    <div class="col">
+    </div>
+    <div class="col-align-center">
+      <div class="col-align-center">
+        <img src="{% static 'images\agenda1.jpg'%}" alt="Map" class="rounded-lg shadow" width="340" height="220">
+      </div>
+    </div>
+    <div class="col">
+      
+    </div>
+  </div>
+ </div>
+
+ <div class="container">
+  <div class="row justify-content-start">
+    <div class="col-1">
+    </div>
+    <div class="col-10">
+      <div class="col-align-center">
+        <center><p class="h2 text-primary">Aplikasi Penjadwalan Belajar</p></center>
+        <center><p class="h4 mt-3">"Rencanakan kegiatan belajarmu"</p></center>
+        <center><p class="h6">Aplikasi ini dibuat untuk mengetahui metode belajar yang efektif dan personal untuk hasil maksimal</p></center>
+
+        <center><a href={% url 'todolist' %} ><button type="button" class="btn btn-primary btn-lg mt-3">... Mulai ...</button></a></center>
+      </div>
+    </div>
+    <div class="col-1">
+      
+    </div>
+  </div>
+ </div>
+
+{% endblock content %}
