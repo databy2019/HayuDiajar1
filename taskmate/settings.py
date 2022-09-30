@@ -75,24 +75,14 @@ WSGI_APPLICATION = 'taskmate.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 # Parse database connection url strings like psql://user:pass@127.0.0.1:8458/db
-<<<<<<< HEAD
 DATABASES = {
-=======
-''' DATABASES = {
->>>>>>> 16e66c7cb51c3631e61f08e2e145582555d172c8
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-<<<<<<< HEAD
 } 
 
 ''' DATABASES = {
-=======
-} '''
-
-DATABASES = {
->>>>>>> 16e66c7cb51c3631e61f08e2e145582555d172c8
      'default': {
          'ENGINE': 'django.db.backends.postgresql_psycopg2',
          #'ENGINE': 'django.contrib.gis.db.backends.postgis',
@@ -102,11 +92,7 @@ DATABASES = {
          'PASSWORD': 'root',
          'PORT': 5432,
      }
-<<<<<<< HEAD
  } '''
-=======
- }
->>>>>>> 16e66c7cb51c3631e61f08e2e145582555d172c8
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
