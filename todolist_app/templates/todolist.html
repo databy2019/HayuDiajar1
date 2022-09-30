@@ -19,6 +19,7 @@
       {% endfor %}
   {% endif %}
     <!-- <div class="table-responsive{-sm|-md|-lg|-xl}"> -->
+<<<<<<< HEAD
 
       {%if user.is_authenticated%}      
       <div class="col-10">
@@ -28,11 +29,14 @@
       </div>
       {% endif %}
      
+=======
+>>>>>>> 16e66c7cb51c3631e61f08e2e145582555d172c8
     <div class="container px-lg-1">
     <form method="POST" class="col">
       {% csrf_token %}
       <label class="col-sm-4"></label>
         <input type="text" class="form-control col-sm-5" name="task" placeholder="Kegiatan baru?">
+<<<<<<< HEAD
         <input type="date" class="form-control col-sm-5" name="tanggal" placeholder="Tanggal?">
         <select class="form-control col-sm-5" id="pelajaran" name="pelajaran">
           <option value="Matematika">Matematika</option>
@@ -62,6 +66,17 @@
         <textarea rows="3" cols="50" class="form-control col-sm-5" name="negatif" placeholder="Kekurangan belajar dengan cara ini..."></textarea>
         {% comment %} <input type="textar ea" class="form-control col-sm-5" name="positif" rows="10" cols="30" placeholder="Keuntungan?"> {% endcomment %}
         {% comment %} <input type="textarea" class="form-control col-sm-5" name="negatif" placeholder="Kekurangan?"> {% endcomment %}
+=======
+        <input type="text" class="form-control col-sm-5" name="tanggal" placeholder="Tanggal?">
+        <input type="text" class="form-control col-sm-5" name="pelajaran" placeholder="Mata Pelajaran?">
+        <input type="text" class="form-control col-sm-5" name="waktu" placeholder="Waktu Belajar?">
+        <input type="text" class="form-control col-sm-5" name="cara" placeholder="Cara Belajar?">
+        <input type="text" class="form-control col-sm-5" name="jam" placeholder="Jam Belajar?">
+        <input type="text" class="form-control col-sm-5" name="durasi" placeholder="Durasi Belajar?">
+        <input type="text" class="form-control col-sm-5" name="nilai" placeholder="Perkiraan Nilai?">
+        <input type="text" class="form-control col-sm-5" name="positif" placeholder="Keuntungan?">
+        <input type="text" class="form-control col-sm-5" name="negatif" placeholder="Kekurangan?">
+>>>>>>> 16e66c7cb51c3631e61f08e2e145582555d172c8
         <button type="submit" class="btn btn-primary col-sm-3">Tambah Kegiatan</button>
     </form>
 
