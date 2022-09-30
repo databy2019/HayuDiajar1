@@ -1,4 +1,4 @@
-import django_heroku
+#import django_heroku
 import os
 #import environ
 from pathlib import Path
