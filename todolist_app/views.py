@@ -134,7 +134,7 @@ def index(request):
 @login_required
 def grafik(request):
     #qs = TaskList.objects.all().filter(pelajaran="Biologi1")
-    qs = TaskList.objects.filter(owner=request.user).orderby('id').reverse()
+    qs = TaskList.objects.filter(owner=request.user).order_by('id').reverse()
     projects_data = [
         {
             'y_data': x.nilai,
