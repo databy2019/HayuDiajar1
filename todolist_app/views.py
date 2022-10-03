@@ -110,7 +110,7 @@ def hasil(request):
 
     return render(request, 'hasil.html', { 'all_tasks': all_tasks })
     
-@login_required
+""" @login_required
 def grafik(request):
     #all_task = TaskList.objects.all() --jik menampilkan semua data siapa aja
     all_task = TaskList.objects.filter(owner=request.user).order_by('id').reverse()
@@ -123,7 +123,7 @@ def grafik(request):
     except EmptyPage:
         all_tasks = paginator.page(paginator.num_pages)
 
-    return render(request, 'grafik.html', { 'all_tasks': all_tasks })
+    return render(request, 'grafik.html', { 'all_tasks': all_tasks }) """
 
 def index(request):
     context ={
@@ -134,7 +134,7 @@ def index(request):
 @login_required
 def grafik(request):
     #qs = TaskList.objects.all().filter(pelajaran="Biologi1")
-    qs = TaskList.objects.all()
+    qs = TaskList.objects..filter(owner=request.user).orderby('id').reverse()
     projects_data = [
         {
             'y_data': x.nilai,
