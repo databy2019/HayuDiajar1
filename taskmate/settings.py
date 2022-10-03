@@ -23,7 +23,7 @@ DEBUG = True
 
 #ALLOWED_HOSTS = [env('DJANGO_ALLOWED_HOSTS')]
 #ALLOWED_HOSTS=['127.0.0.1','192.168.1.3', '36.72.10.81','131184133255.ip-dynamic.com','36.71.243.181']
-ALLOWED_HOST = ['*', 'ec2-3-83-83-222.compute-1.amazonaws.com', '172.31.85.100']
+ALLOWED_HOSTS = ['*', 'ec2-3-83-83-222.compute-1.amazonaws.com', '172.31.85.100']
 
 # Application definition
 
